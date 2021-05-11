@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -275,7 +275,22 @@ Data = [
         imgSrc_png: '../../assets/img/background/background7.jpg',
     },
 ]
+selectedProduct = {
+    topclothes:"",
+    botclothes:"",
+    shoes:"",
+    handbags:"",
+    necklaces:"",
+    hairstyle:"",
+    background:""
+}
+@Output() selectedProductEmitter = new EventEmitter();
 
+setSelectedProduct(img,type){
+    //Object Literal
+    this.selectedProduct[type] = img; //Cập Nhật selectedProduct
+    this.selectedProductEmitter.emit(this.selectedProduct) //Đẩy giá trị đi cho các component đang subcribe theo dõi biến này
+}
 
   constructor() { }
 }

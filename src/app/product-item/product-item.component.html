@@ -2,6 +2,11 @@
   <img src="{{ product.imgSrc_jpg }}" />
   <div class="card-body">
     <p class="lead">{{ product.name }}</p>
-    <button class="btn btn-success">Thử</button>
+    <button
+      class="btn btn-success"
+      (click)="onSelectedProduct(product.imgSrc_png, product.type)"
+    >
+      Thử
+    </button>
   </div>
 </div>

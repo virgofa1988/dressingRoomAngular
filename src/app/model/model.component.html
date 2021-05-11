@@ -5,5 +5,18 @@
   <div class="bikinibottom"></div>
   <div class="feetleft"></div>
   <div class="feetright"></div>
- 
+  <div
+    class="bikinitop"
+    [ngStyle]="{
+      'background-image': 'url(' + selectedProduct.topclothes + ')',
+      'background-size': 'cover'
+    }"
+  ></div>
+  <div
+    class="bikinibottom"
+    [ngStyle]="{
+      'background-image': 'url(' + selectedProduct.botclothes + ')',
+      'background-size': 'cover'
+    }"
+  ></div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit  } from '@angular/core';
 import { Product } from '../models/product';
+import { ProductlistService } from '../service/productlist.service';
 
 @Component({
   selector: 'app-product-item',
@@ -8,9 +9,11 @@ import { Product } from '../models/product';
 })
 export class ProductItemComponent implements OnInit {
 @Input() product:Product;
-  constructor() {}
+  constructor(private selectedProductSV:ProductlistService) {}
 
-
+  onSelectedProduct (img,type){
+    this.selectedProductSV.setSelectedProduct(img,type)
+  }
 
 
   ngOnInit(): void {}

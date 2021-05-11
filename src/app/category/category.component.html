@@ -1,6 +1,7 @@
 <div class="btn-group container-fluid mb-4">
   <button
     class="btn btn-secondary"
+    [ngClass]="{ 'btn-warning': item.type === selectedCategory }"
     *ngFor="let item of categoryList"
     (click)="onSelectCategory(item.type)"
   >

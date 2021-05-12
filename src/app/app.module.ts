@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { ModelComponent } from './model/model.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ObervableComponent } from './obervable/obervable.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProductListComponent } from './product-list/product-list.component';
     HomeComponent,
     ModelComponent,
     ProductItemComponent,
-    ProductListComponent
+    ProductListComponent,
+    ObervableComponent
   ],
   imports: [
     BrowserModule,

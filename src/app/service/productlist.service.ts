@@ -1,4 +1,5 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -275,7 +276,7 @@ Data = [
         imgSrc_png: '../../assets/img/background/background7.jpg',
     },
 ]
-selectedProduct = {
+selectedProduct = new BehaviorSubject({
     topclothes:"",
     botclothes:"",
     shoes:"",
@@ -283,13 +284,17 @@ selectedProduct = {
     necklaces:"",
     hairstyle:"",
     background:""
-}
-@Output() selectedProductEmitter = new EventEmitter();
+});
+// @Output() selectedProductEmitter = new EventEmitter();
 
 setSelectedProduct(img,type){
+const currentSelectedProducts = this.selectedProduct.getValue();
+
+this.selectedProduct.next({...currentSelectedProducts,[type]:img})
+
     //Object Literal
-    this.selectedProduct[type] = img; //Cập Nhật selectedProduct
-    this.selectedProductEmitter.emit(this.selectedProduct) //Đẩy giá trị đi cho các component đang subcribe theo dõi biến này
+    // this.selectedProduct[type] = img; //Cập Nhật selectedProduct
+    // this.selectedProductEmitter.emit(this.selectedProduct) //Đẩy giá trị đi cho các component đang subcribe theo dõi biến này
 }
 
   constructor() { }

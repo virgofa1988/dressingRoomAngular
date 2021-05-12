@@ -20,10 +20,15 @@ export class CategoryComponent implements OnInit {
 
   //lifecycle chạy lúc đầu
   ngOnInit(): void { //void là chỉ chạy hàm không trả về dữ liệu
-    // this.categoryList = this.categorySv.categorylist
-    this.selectedCategory = this.categorySv.selectedCategory;
-    this.categorySv.selectedCategoryEmitter.subscribe((val)=>{
-      this.selectedCategory =val;
+  this.categoryList = this.categorySv.categorylist
+    // this.selectedCategory = this.categorySv.selectedCategory;
+
+
+    this.categorySv.selectedCategory.subscribe((val)=>{
+      this.selectedCategory = val
     })
+    // this.categorySv.selectedCategoryEmitter.subscribe((val)=>{
+      // this.selectedCategory =val;
+    // })
   }
 }
